@@ -21,7 +21,7 @@ import theme from '../theme';
 import Channels from './Channels';
 import EditProfile from './EditProfile';
 import CloseIcon from '@material-ui/icons/Close';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './Home';
 import Chat from './Chat';
 import Join from './Join';
