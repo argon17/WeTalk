@@ -227,7 +227,7 @@ const Chat = () => {
                             fullWidth
                             multiline
                             rows={1}
-                            rowsMax={2}
+                            rowsMax={1}
                             value={userNewMsg}
                             onChange={(e) => {
                                 setUserNewMsg(e.target.value);
