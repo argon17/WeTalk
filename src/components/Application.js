@@ -159,7 +159,7 @@ const Application = ({ window, uid }) => {
     return (
         userDetails ? 
         <div className={classes.root}>
-            <Router>
+            <Router basename="WeTalk">
                 <CssBaseline />
                 <Snackbar
                     anchorOrigin={{ vertical: "top", horizontal: "center" }}
