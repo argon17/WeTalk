@@ -31,14 +31,13 @@ const Channels = ({user}) => {
 
     const addChannel = (cName) => {
         if (cName) {
-          cName = cName.toLowerCase();
           // channels => channelname, messages, members
           console.log(cName);
           let users = [];
           users.push(user);
           db.collection("channels")
             .add({ 
-                channelName: cName.toLowerCase(),
+                channelName: cName,
                 members: users
             })
             .then((chRef) => {

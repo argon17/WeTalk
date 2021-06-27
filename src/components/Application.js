@@ -70,11 +70,13 @@ const useStyles = makeStyles(theme=>({
         background: 'linear-gradient(to right, #0f2027, #203a43, #2c5364)',
         color: "white",
     },
+    // you very noob biro, itna pareshaan kraya harami
     content: {
         marginTop: "64px",
         [theme.breakpoints.up('sm')]: {
-        width: `calc(100% - ${drawerWidth}px)`,
+            width: `calc(100% - ${drawerWidth}px)`,
         },
+        width: '100%'
     },
     menu: {
         "& .MuiPaper-root": {

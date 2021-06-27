@@ -17,6 +17,16 @@ const useStyles = makeStyles((theme)=> ({
         textAlign: 'left',
         marginLeft: theme.spacing(5),
         color: "white"
+    },
+    media : {
+        marginTop: theme.spacing(2)
+    },
+    post_img: {
+        [theme.breakpoints.up('sm')]: {
+            width: theme.spacing(80),
+        },
+        width: theme.spacing(40),
+        objectFit: 'contain'
     }
 }))
 
@@ -62,11 +72,6 @@ const Message = ({ values, msgId }) => {
                     subheader={time}
                     className={classes.header}
                 />
-                {postImg && <CardMedia
-                    className={classes.media}
-                    image={postImg}
-                    title="post_img"
-                />}
                 <CardContent>
                     <Typography 
                         variant="body2" 
@@ -76,6 +81,12 @@ const Message = ({ values, msgId }) => {
                     >
                         {values.text}
                     </Typography>
+                    {postImg && <CardMedia
+                        className={classes.media}
+                        title="post_img"
+                    >
+                        <img src={postImg} alt="post_img" className={classes.post_img}/>
+                    </CardMedia>}
                 </CardContent>
             </Card>
         </div>
