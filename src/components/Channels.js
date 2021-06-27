@@ -7,12 +7,13 @@ import { List, ListItem, ListItemIcon, ListItemText, makeStyles } from '@materia
 import firebase from 'firebase/app'
 import { useHistory } from 'react-router-dom'
 import PeopleIcon from '@material-ui/icons/People';
+import HomeIcon from '@material-ui/icons/Home';
 
 const useStyles = makeStyles((theme)=>({
     addChannelButton:{
-        margin: theme.spacing(2)
+        margin: theme.spacing(2),
     },
-    channel:{
+    list_item:{
         paddingLeft: theme.spacing(5),
         boxShadow: '1px 1px black'
     }
@@ -60,6 +61,10 @@ const Channels = ({user}) => {
         history.push(`/channel/${id}`);
     };
 
+    const navigateToHome = (id) => {
+        history.push(`/`);
+    };
+
     useEffect(() => {
         if(user){
             db.collection("users").doc(user)
@@ -91,13 +96,25 @@ const Channels = ({user}) => {
                 Add Channel
             </Button>
             <Divider/>
+            <ListItem 
+                className={classes.list_item}
+                button 
+                onClick={navigateToHome}
+            >
+                <ListItemIcon>
+                    <HomeIcon/>
+                </ListItemIcon>
+                <ListItemText>
+                    Home
+                </ListItemText>
+            </ListItem>
             <List component="div" disablePadding>
                 {channelList.map((channel) => (
                     <ListItem 
                         key={channel.id} 
                         button 
                         onClick={() => navigateToChat(channel.id)}
-                        className={classes.channel}
+                        className={classes.list_item}
                     >
                         <ListItemIcon>
                             <PeopleIcon/>
