@@ -39,11 +39,15 @@ const Message = ({ values, msgId }) => {
     const uid = JSON.parse(localStorage.getItem("userDetails")).uid;
     const ownerUid = values.uid;
     const date = values.timestamp.toDate();
-    const day = date.getDate();
+    let day = date.getDate().toString();
+    day = day.length < 2 ? "0"+day : day;
     const year = date.getFullYear();
-    const month = date.getMonth();
-    const hour = date.getHours();
-    const minute = date.getMinutes();
+    let month = (date.getMonth() + 1).toString();
+    month = month.length < 2 ? "0"+month : month;
+    let hour = date.getHours().toString();
+    hour = hour.length < 2 ? "0"+hour : hour;
+    let minute = date.getMinutes().toString();
+    minute = minute.length < 2 ? "0"+minute : minute;
     const time = `${day}/${month}/${year}   ${hour}:${minute}`;
 
 

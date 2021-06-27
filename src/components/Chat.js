@@ -224,6 +224,7 @@ const Chat = () => {
                     >
                         <TextField 
                             required
+                            autoFocus
                             fullWidth
                             multiline
                             rows={1}
