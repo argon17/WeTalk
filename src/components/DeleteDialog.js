@@ -34,6 +34,12 @@ const DeleteDialog = ({ msgId, text, deleteMsg, handleDialog, postImg }) => {
         <div>
                 <Dialog
                     open={dialog}
+                    PaperProps={{
+                        style: {
+                          background: "linear-gradient(to right, #0f2027, #203a43, #2c5364)",
+                          boxShadow: "none"
+                        },
+                    }}
                     onClose={handleClose}
                 >
                     <DialogTitle> Delete Message ? </DialogTitle>
