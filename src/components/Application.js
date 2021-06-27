@@ -24,6 +24,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './Home';
 import Chat from './Chat';
+import Join from './Join';
 
 const drawerWidth = 300;
 
@@ -250,6 +251,9 @@ const Application = ({ window, uid }) => {
                         </Route>
                         <Route path="/channel/:id">
                             <Chat />
+                        </Route>
+                        <Route path="/join/:id">
+                            <Join/>
                         </Route>
                     </Switch>
                 </main>
