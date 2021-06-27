@@ -76,7 +76,9 @@ const Chat = () => {
             .doc(params.id)
             .onSnapshot((doc) => {
                 // console.log(JSON.stringify(doc.data()));
-                setChannelName(doc.data().channelName);
+                if(doc.data()){
+                    setChannelName(doc.data().channelName);
+                }
             });
     
             db.collection("channels")

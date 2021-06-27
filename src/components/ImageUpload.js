@@ -2,9 +2,27 @@ import React, {useState} from 'react'
 import {db, storage} from '../Firebase/Firebase'
 import { useParams } from 'react-router-dom';
 import firebase from 'firebase/app'
-import { Dialog, DialogTitle, DialogActions, DialogContent, TextField, Button, Box, LinearProgress, Typography } from '@material-ui/core';
+import { Dialog, 
+    DialogTitle,
+    DialogActions, 
+    DialogContent, 
+    TextField, 
+    Button, 
+    Box, 
+    LinearProgress, 
+    Typography,
+    makeStyles } from '@material-ui/core';
+
+const useStyles = makeStyles((theme) => ({
+    thumbnail : {
+        width: theme.spacing(40),
+        objectFit: 'contain'
+    }
+}))
 
 const ImageUpload = ({ setState, file }) => {
+
+    const classes = useStyles();
 
     const [dialog,setDialog] = useState(true);
     const [caption, setCaption] = useState("");
@@ -106,6 +124,7 @@ const ImageUpload = ({ setState, file }) => {
                     <img 
                         alt="user_file"
                         src={fileObj}
+                        className={classes.thumbnail}
                     />
                     <TextField
                         fullWidth
@@ -138,6 +157,7 @@ const ImageUpload = ({ setState, file }) => {
                         Cancel
                     </Button>
                     <Button
+                        autoFocus
                         type="submit"
                         color="default"
                         onClick={(e) => handleImageUpload(e)}

@@ -1,7 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Avatar, makeStyles, Typography, Card, CardContent, CardHeader, IconButton, CardMedia } from '@material-ui/core';
-// import { useParams } from 'react-router-dom';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { useParams } from 'react-router-dom';
+import DeleteIcon from '@material-ui/icons/Delete';
+import DeleteDialog from './DeleteDialog';
+import {db} from '../Firebase/Firebase';
 
 const useStyles = makeStyles((theme)=> ({
     container:{
@@ -46,12 +48,37 @@ const Message = ({ values, msgId }) => {
 
 
     const postImg = values.postImg;
+    const channelId = useParams().id;
+    const [deleteDialog, setDeleteDialog] = useState(false);
 
-    // const channelId = useParams().id;
+    const handleDeleteDialog = () => {
+        setDeleteDialog(!deleteDialog);
+    }
+
+    const deleteMsg = (id) => {
+        db.collection("channels")
+        .doc(channelId)
+        .collection("messages")
+        .doc(id)
+        .delete()
+        .then((res) => {
+        console.log("deleted successfully");
+        })
+        .catch((err) => {
+        console.log(err);
+        });
+    }
 
     return (
         <div>
             {/* <p>{JSON.stringify(values)}</p> */}
+            {deleteDialog && <DeleteDialog
+                msgId={msgId}
+                text={values.text}
+                postImg={postImg}
+                deleteMsg={deleteMsg}
+                handleDialog={handleDeleteDialog}
+            />}
              <Card className={classes.container}>
                 <CardHeader
                     avatar={
@@ -64,8 +91,11 @@ const Message = ({ values, msgId }) => {
                     </Avatar>
                     }
                     action={
-                    <IconButton aria-label="more">
-                        {uid===ownerUid && <MoreVertIcon />}
+                    <IconButton 
+                        aria-label="delete"
+                        onClick={handleDeleteDialog}
+                    >
+                        {uid===ownerUid && <DeleteIcon />}
                     </IconButton>
                     }
                     title={values.userName}
