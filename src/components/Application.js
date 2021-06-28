@@ -188,7 +188,7 @@ const Application = ({ window, uid }) => {
                         onClick={handleDrawerToggle}
                         className={classes.menuButton}
                     >
-                    <MenuIcon />
+                        <MenuIcon />
                     </IconButton>
                         <div className={classes.header}>
                             <img src={logo} alt="logo" className={classes.logo}/>

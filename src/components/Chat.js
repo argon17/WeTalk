@@ -7,7 +7,6 @@ import ScrollableFeed from "react-scrollable-feed";
 import Message from './Message'
 import AttachFileIcon from '@material-ui/icons/AttachFile';
 import SendIcon from '@material-ui/icons/Send';
-import InsertEmoticonTwoToneIcon from '@material-ui/icons/InsertEmoticonTwoTone';
 import ImageUpload from './ImageUpload';
 import { useHistory } from 'react-router-dom'
 
@@ -211,12 +210,6 @@ const Chat = () => {
                             <AttachFileIcon/>
                         </IconButton>
                     </label>
-
-                    <IconButton
-                        component="button"
-                    >
-                        <InsertEmoticonTwoToneIcon/>
-                    </IconButton>
                     <form
                         autoComplete="off"
                         onSubmit={(e) => sendMsg(e)}

@@ -112,7 +112,7 @@ const Channels = ({user}) => {
                 {channelList.map((channel) => (
                     <ListItem 
                         key={channel.id} 
-                        button 
+                        button
                         onClick={() => navigateToChat(channel.id)}
                         className={classes.list_item}
                     >
