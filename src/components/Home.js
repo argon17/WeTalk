@@ -6,7 +6,8 @@ import { Grid,
     CardContent,
     Avatar,
     Typography,
-    makeStyles } from '@material-ui/core';
+    makeStyles, 
+    Divider} from '@material-ui/core';
 import Promo from './Promo';
 import { useHistory } from 'react-router-dom'
 
@@ -39,6 +40,10 @@ const useStyles = makeStyles(theme=>({
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center'
+    },
+    empty:{
+      color: 'grey',
+      margin: theme.spacing(10)
     }
 }));
 
@@ -68,6 +73,7 @@ const Home = ({user}) => {
     return (
       <div>
         <Promo/>
+        <Divider/>
         {/* {console.log(channelList.length)} */}
         {channelList.length > 0 ?
         <Grid container>
@@ -101,7 +107,7 @@ const Home = ({user}) => {
         ))}
         </Grid> : 
         <div>
-          <Typography>
+          <Typography className={classes.empty}>
             Seems, there are no channels.<br/>
             Create a channel first.
           </Typography>
