@@ -5,7 +5,7 @@ https://argon17.github.io/WeTalk/
 # Table of contents
 - [Description](#description)
 - [Features](#features)
-- [How to use](#how-to-use)
+- [How to setup](#how-to-use)
 
 # Description
 A chatting web application built with ReactJS, Firebase and Material UI
@@ -23,7 +23,7 @@ Mobile | Desktop
 * Emoji Support (To be added)
 
 
-# How to use
+# How to setup
 * Clone the repository
 * cd into dir and run `npm install`
 * To start the project `npm start`
