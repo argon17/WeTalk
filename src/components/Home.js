@@ -11,9 +11,6 @@ import Promo from './Promo';
 import { useHistory } from 'react-router-dom'
 
 const useStyles = makeStyles(theme=>({
-    container:{
-        padding: theme.spacing(2),
-    },
     content:{
         display:'flex',
         justifyContent:'space-between',
@@ -24,8 +21,9 @@ const useStyles = makeStyles(theme=>({
     },
     card:{
         display: "flex",
-        padding: theme.spacing(10),
-        height: theme.spacing(30),
+        [theme.breakpoints.up('sm')]: {
+          height: theme.spacing(30),
+        },
     },
     channel_avatar:{
         height: theme.spacing(10),
@@ -36,6 +34,11 @@ const useStyles = makeStyles(theme=>({
     },
     channel_name:{
         paddingTop: theme.spacing(5)
+    },
+    container: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center'
     }
 }));
 
@@ -67,7 +70,7 @@ const Home = ({user}) => {
         <Promo/>
         {/* {console.log(channelList.length)} */}
         {channelList.length > 0 ?
-        <Grid container className={classes.container}>
+        <Grid container>
         {channelList.map((channel) => (
           <Grid
             item
@@ -81,7 +84,7 @@ const Home = ({user}) => {
                 className={classes.card} 
                 onClick={() => navigateToChat(channel.id)}
               >
-                <CardContent>
+                <CardContent  className={classes.container}>
                   <Avatar
                     variant="square"
                     className={classes.channel_avatar}
@@ -99,7 +102,8 @@ const Home = ({user}) => {
         </Grid> : 
         <div>
           <Typography>
-            Seems, there are no channels, create a channel first.
+            Seems, there are no channels.<br/>
+            Create a channel first.
           </Typography>
         </div>}
       </div>
