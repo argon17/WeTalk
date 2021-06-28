@@ -9,11 +9,15 @@ https://argon17.github.io/WeTalk/
 
 # Description
 A chatting web application built with ReactJS, Firebase and Material UI
-<!-- 
+
 # Visuals
-Mobile | Desktop
+Small Screen
+Home | Chat
 --- | ---
-![](./assetsImg/MobilePreview.jpg?raw=true) | ![](./assetsImg/DesktopPreview.png?raw=true) -->
+![](./docs/MobilePreview1.jpg?raw=true) | ![](./docs/MobilePreview.jpg?raw=true)
+Large Screen
+Home | Chat
+ ![](./docs/DesktopPreview1.png?raw=true) | ![](./docs/DesktopPreview.png?raw=true)
 
 # Features
 * Google Authentication
