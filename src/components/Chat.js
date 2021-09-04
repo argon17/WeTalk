@@ -222,6 +222,7 @@ const Chat = () => {
                             multiline
                             rows={1}
                             rowsMax={1}
+                            inputRef={input => input && input.focus()}
                             value={userNewMsg}
                             onChange={(e) => {
                                 setUserNewMsg(e.target.value);
